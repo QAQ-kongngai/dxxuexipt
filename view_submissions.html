@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}提交记录{% endblock %}
+{% block content %}
+<h2>提交记录：{{ task.title }}</h2>
+<table border="1" cellpadding="8">
+    <tr>
+        <th>学生</th>
+        <th>提交时间</th>
+        <th>文件名</th>
+    </tr>
+    {% for sub in submissions %}
+    <tr>
+        <td>{{ sub.user.username }}</td>
+        <td>{{ sub.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        <td>{{ sub.filename }}</td>
+    </tr>
+    {% else %}
+    <tr><td colspan="3">暂无提交记录</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}

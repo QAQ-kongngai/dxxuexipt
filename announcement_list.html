@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}公告列表{% endblock %}
+{% block content %}
+<h2>公告列表</h2>
+<ul>
+    {% for a in announcements %}
+        <li>
+            <strong>{{ a.title }}</strong> — {{ a.created_at.strftime('%Y-%m-%d %H:%M') }}<br>
+            <p>{{ a.content }}</p>
+        </li>
+    {% else %}
+        <p>暂无公告</p>
+    {% endfor %}
+</ul>
+{% endblock %}
